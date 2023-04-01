@@ -1,0 +1,6 @@
+react -> frontend
+
+get permit all data
+login
+register
+main page
