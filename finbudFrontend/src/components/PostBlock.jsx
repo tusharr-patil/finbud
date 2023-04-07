@@ -16,7 +16,7 @@ import PostMoreOptions from "./PostMoreOptions";
 import DeletePostApi from "../apis/DeletePost";
 
 export default function PostBlock(props) {
-  const [save, setSave] = useState(true);
+  const [save, setSave] = useState(props?.post?.isSaved ? false : true);
   const [openViewProfile, setOpenViewProfile] = useState(false);
   const [userDetails, setUserDetails] = useState([]);
   const [showDelete, setShowDelete] = useState(false);

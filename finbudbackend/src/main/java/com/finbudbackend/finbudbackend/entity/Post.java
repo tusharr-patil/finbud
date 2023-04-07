@@ -30,6 +30,9 @@ public class Post {
     private String timeSince = "";
 
     private Set<Long> postSavedByUsers = new HashSet<>();
+
+    private Boolean isSaved = false;
+
 //    Project Name
 //    Working on
 //    Requirements

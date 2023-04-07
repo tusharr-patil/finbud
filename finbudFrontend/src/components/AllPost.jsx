@@ -14,9 +14,23 @@ export default function AllPost() {
     async function fetchAllPost() {
         console.log("agaya fetch all post me")
         const fetchedPosts = await GetAllPostApi();
-        setPosts(fetchedPosts);
         console.log("post length " + posts.length);
+        const userId = await GetUserIdApi(); 
+        const userDetails = await UserDetailsApi(userId);
+        console.log(userDetails.savedPost);
+        const savedPostArray = userDetails.savedPost;
         
+        console.log("user Details Api all post me" + savedPostArray);
+        console.log("fetch Post Ids Api all post me" + fetchedPosts);
+        fetchedPosts.map(post => {
+          console.log(post.postId);
+          if(savedPostArray.includes(post.postId)) {
+            post.isSaved = true;
+          } else {
+            post.isSaved = false;
+          }
+        });
+        setPosts(fetchedPosts);
     }
 
     function handleSignOut() {

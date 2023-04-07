@@ -94,6 +94,8 @@ public class UserService {
             postIds.add(postId);
             postSavedByUsers.add(uid);
         }
+
+        
         user.setSavedPost(postIds);
         userRepository.save(user);
 
