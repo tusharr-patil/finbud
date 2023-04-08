@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.Collections;
 
 @Slf4j
 @Service
@@ -77,11 +78,18 @@ public class PostService {
     }
 
     public Post getPostById(Long postId) {
-        return postRepository.findById(postId).get();
+        Post post = postRepository.findById(postId).get();
+        post.setTimeSince(timeSince.timeSince(post.getTimeSincePostAdded()));
+        return post;
     }
 
     public List<Post> getUserPost(Long userId) {
-        return postRepository.findAllByUserId(userId);
+        List<Post> postList = postRepository.findAllByUserId(userId);
+        for(Post post : postList){
+            post.setTimeSince(timeSince.timeSince(post.getTimeSincePostAdded()));
+        }
+        Collections.reverse(postList);
+        return postList;
     }
 
     public List<Post> getSavedPost(Long userId) {
@@ -92,7 +100,9 @@ public class PostService {
         log.info("in savedPost service 1");
         List<Post> postList = new ArrayList<>();
         for(int i = n-1; i >= 0; i--){
-            postList.add(postRepository.findById(postIdsList.get(i)).get());
+            Post currPost = postRepository.findById(postIdsList.get(i)).get();
+            currPost.setTimeSince(timeSince.timeSince(currPost.getTimeSincePostAdded()));
+            postList.add(currPost);
         }
         log.info("in savedPost service 2 " + postList.size());
         return postList;

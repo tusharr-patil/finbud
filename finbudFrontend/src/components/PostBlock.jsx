@@ -14,6 +14,7 @@ import ToastContext from "../contexts/ToastContext";
 import {AddOrRemovePostIdToSaveList} from "../apis/SaveUnSave";
 import PostMoreOptions from "./PostMoreOptions";
 import DeletePostApi from "../apis/DeletePost";
+import { GetUserIdApi } from "../apis/GetUserIdApi";
 
 export default function PostBlock(props) {
   const [save, setSave] = useState(props?.post?.isSaved ? false : true);
@@ -33,7 +34,8 @@ export default function PostBlock(props) {
   async function SetUserDetails() {
     const userDetails = await UserDetailsApi(props?.post?.userId);
     setUserDetails(userDetails);
-    if(userDetails.id === props?.post?.userId) {
+    const userId = await GetUserIdApi(); 
+    if(userId === props?.post?.userId) {
       setShowDelete(true);
     }
   }
