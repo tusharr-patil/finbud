@@ -47,15 +47,15 @@ public class UserController {
 
     // core api
     @PutMapping(value = "updateUser")
-    public void updateUser(@RequestBody User user){
-        userService.updateUser(user);
+    public void updateUser(@RequestBody User user, Authentication authentication){
+        userService.updateUser(user, authentication);
     }
 
     // for personal use
-    @DeleteMapping(value = "deleteUsers")
-    public void deleteAllUsers(){
-        userService.deleteAllUsers();
-    }
+    // @DeleteMapping(value = "deleteUsers")
+    // public void deleteAllUsers(){
+    //     userService.deleteAllUsers();
+    // }
 
     // core api
     @PutMapping(value = "saveUnSavePostId/{postId}")

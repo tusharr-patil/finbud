@@ -46,17 +46,21 @@ public class UserService {
         return userRepository.findByEmail(email).get();
     }
 
-    public void updateUser(User user) {
-        Long userId = user.getId();
-        User currUser = userRepository.findById(userId)
-                .orElseThrow(() -> new EntityNotFoundException("User not found with id " + userId));
+    public void updateUser(User user, Authentication authentication) {
+        Optional<User> userOptional = userRepository.findByEmail(authentication.getName());
+        if(!userOptional.isPresent()){
+          log.info("user not found!");
+          return;
+        }
+        User currUser = userOptional.get();
         currUser.setFirstName(user.getFirstName());
-        currUser.setLastName(user.getLastName());
-        currUser.setAbout(user.getAbout());
-        currUser.setGithub(user.getGithub());
-        currUser.setCollege(user.getCollege());
-        currUser.setSkills(user.getSkills());
-        currUser.setTwitter(user.getTwitter());
+        currUser.setLinkedIn(user.getLinkedIn());
+        // currUser.setLastName(user.getLastName());
+        // currUser.setAbout(user.getAbout());
+        // currUser.setGithub(user.getGithub());
+        // currUser.setCollege(user.getCollege());
+        // currUser.setSkills(user.getSkills());
+        // currUser.setTwitter(user.getTwitter());
         userRepository.save(currUser);
         log.info("user details updated successfully");
     }

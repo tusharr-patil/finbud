@@ -1,7 +1,7 @@
 // import { makeStyles } from "@mui/styles";
-// import { blueGrey } from "@material-ui/core/colors";
-// import { blue } from "@material-ui/core/colors";
-
+// import { blueGrey } from "@mui/core/colors";
+// import { blue } from "@mui/core/colors";
+//
 // export const useStyles = makeStyles((theme) => ({
 //   toolbar: {
 //     display: "flex",
@@ -23,7 +23,7 @@
 //     width: "35px",
 //     height: "35px"
 //   },
-
+//
 //   //wrapper of main contianer
 //   wrapper: {
 //     minHeight: "100vh",
@@ -36,7 +36,7 @@
 //       marginTop: "45px"
 //     }
 //   },
-
+//
 //   //Side nav
 //   drawerPaper: {
 //     width: "250px",

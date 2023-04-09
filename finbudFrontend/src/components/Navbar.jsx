@@ -3,6 +3,7 @@ import React from "react";
 
 // frontend imports
 import { AppBar, Box, Hidden, Toolbar, Typography } from "@mui/material";
+import NavbarProfileAvatar from "./NavbarProfileAvatar";
 // import { useStyles } from "./HeaderStyles";
 
 export default function Navbar({ handleDrawerOpen }) {
@@ -14,7 +15,7 @@ export default function Navbar({ handleDrawerOpen }) {
         <Typography variant="h6">
           {"FINBUD"}
         </Typography>
-        {/* <Hidden smDown>
+        <Hidden smDown>
           <Box style={{ display: "flex" }}>
             <NavbarProfileAvatar />
           </Box>
@@ -23,7 +24,7 @@ export default function Navbar({ handleDrawerOpen }) {
           <Box style={{ display: "flex" }}>
             <NavbarProfileAvatar />
           </Box>
-        </Hidden> */}
+        </Hidden> 
       </Toolbar>
     </AppBar>
   );

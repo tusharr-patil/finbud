@@ -21,19 +21,13 @@ export default function AllPost() {
     };
 
     async function fetchAllPost() {
-        console.log("agaya fetch all post me")
         const fetchedPosts = await GetAllPostApi();
-        console.log("post length " + posts.length);
         const userId = await GetUserIdApi();
         setCurrUserId(userId);
         const userDetails = await UserDetailsApi(userId);
-        console.log(userDetails.savedPost);
         const savedPostArray = userDetails.savedPost;
         
-        console.log("user Details Api all post me" + savedPostArray);
-        console.log("fetch Post Ids Api all post me" + fetchedPosts);
         fetchedPosts.map(post => {
-          console.log(post.postId);
           if(savedPostArray.includes(post.postId)) {
             post.isSaved = true;
           } else {
@@ -44,14 +38,24 @@ export default function AllPost() {
     }
 
     async function fetchMyPost() {
-      console.log("in fetch my post");
       const fetchMyPost = await GetMyPost(currUserId);
-      console.log(fetchMyPost);
+      const userDetails = await UserDetailsApi(currUserId);
+      const savedPostArray = userDetails.savedPost;
+      fetchMyPost.map(post => {
+        if(savedPostArray.includes(post.postId)) {
+          post.isSaved = true;
+        } else {
+          post.isSaved = false;
+        }
+      })
       setPosts(fetchMyPost);
     }
 
     async function fetchSavedPost() {
       const fetchSavedPost = await GetSavedPost(currUserId);
+      fetchSavedPost.map(post => {
+        post.isSaved = true;
+      })
       setPosts(fetchSavedPost);
     }
 
@@ -100,7 +104,6 @@ export default function AllPost() {
             </Box>
 
             {posts?.map((post) => {
-                console.log(post);
                 return <PostBlock key={post?.postId} post={post}/>;
             })}
             <br />
