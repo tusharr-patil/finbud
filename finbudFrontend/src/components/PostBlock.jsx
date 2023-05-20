@@ -140,7 +140,15 @@ export default function PostBlock(props) {
         </CardContent>
         <CardContent>
           <Card.Title>Project Name</Card.Title>
-          <Card.Text>{props?.post?.content}</Card.Text>
+          <Card.Text>{props?.post?.projectName}</Card.Text>
+          <Card.Title>Working on</Card.Title>
+          <Card.Text>{props?.post?.workingOn}</Card.Text>
+          <Card.Title>Requirements</Card.Title>
+          <Card.Text>{props?.post?.requirements}</Card.Text>
+          <Card.Title>Experties</Card.Title>
+          <Card.Text>{props?.post?.expertise}</Card.Text>
+          <Card.Title>Benefits</Card.Title>
+          <Card.Text>{props?.post?.benefits}</Card.Text>
         </CardContent>
         <Grid container>
           <Grid lg={6} style={{ textAlign: "center" }}>

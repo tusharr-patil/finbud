@@ -25,7 +25,7 @@ export default function AllPost() {
         const userId = await GetUserIdApi();
         setCurrUserId(userId);
         const userDetails = await UserDetailsApi(userId);
-        const savedPostArray = userDetails.savedPost;
+        const savedPostArray = userDetails.savedPost == null ? [] : userDetails.savedPost;
         
         fetchedPosts.map(post => {
           if(savedPostArray.includes(post.postId)) {
@@ -40,7 +40,7 @@ export default function AllPost() {
     async function fetchMyPost() {
       const fetchMyPost = await GetMyPost(currUserId);
       const userDetails = await UserDetailsApi(currUserId);
-      const savedPostArray = userDetails.savedPost;
+      const savedPostArray = userDetails.savedPost == null ? [] : userDetails.savedPost;
       fetchMyPost.map(post => {
         if(savedPostArray.includes(post.postId)) {
           post.isSaved = true;

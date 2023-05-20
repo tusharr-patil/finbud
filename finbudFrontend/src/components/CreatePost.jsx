@@ -196,7 +196,7 @@ export default function CreatePost() {
                         value={post?.projectName}
                         autoFocus
                         margin="dense"
-                        id="project"
+                        id="projectName"
                         label="Project Name"
                         multiline
                         fullWidth
@@ -211,10 +211,10 @@ export default function CreatePost() {
                       <h1>I'm Working on</h1>
                       <TextField
                         onChange={handleChange}
-                        value={post?.description}
+                        value={post?.workingOn}
                         autoFocus
                         margin="dense"
-                        id="description"
+                        id="workingOn"
                         label="I'm working on"
                         multiline
                         fullWidth
@@ -247,10 +247,10 @@ export default function CreatePost() {
                       <h1>My Experties</h1>
                       <TextField
                         onChange={handleChange}
-                        value={post?.experience}
+                        value={post?.expertise}
                         autoFocus
                         margin="dense"
-                        id="experience"
+                        id="expertise"
                         label="My expertise"
                         multiline
                         fullWidth

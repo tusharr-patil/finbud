@@ -23,7 +23,15 @@ public class Post {
     // foreign key - check if the user is valid or not..
     private Long userId;
 
-    private String content;
+    private String projectName;
+
+    private String workingOn;
+
+    private String requirements;
+
+    private String expertise;
+
+    private String benefits;
 
     private Long timeSincePostAdded = System.currentTimeMillis();
 
