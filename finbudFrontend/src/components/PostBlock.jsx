@@ -123,7 +123,7 @@ export default function PostBlock(props) {
               //   onClick={handleViewProfileToOpen}
             >
               {/* {mainUser[0] === undefined ? "" : mainUser[0].name} */}
-              {userDetails.firstName}
+              {userDetails.name}
             </Link>
           }
           subheader={

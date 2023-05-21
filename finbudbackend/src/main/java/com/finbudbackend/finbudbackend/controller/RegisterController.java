@@ -39,6 +39,9 @@ public class RegisterController {
             @RequestBody RegisterRequest request
     ) {
         try {
+            if(request.getEmail() == null || request.getName() == null || request.getPassword() == null) {
+                return (ResponseEntity<AuthenticationResponse>) ResponseEntity.badRequest();
+            }
             AuthenticationResponse response = service.register(request);
             response.setHttpStatus(HttpStatus.OK);
             return ResponseEntity.ok(response);
@@ -74,7 +77,7 @@ public class RegisterController {
         }
         UserInfo userInfo = new UserInfo();
         userInfo.setId(user.get().getId());
-        userInfo.setName(user.get().getFirstName());
+        userInfo.setName(user.get().getName());
         userInfo.setHttpStatus(HttpStatus.OK);
         return ResponseEntity.ok(userInfo);
     }

@@ -3,8 +3,13 @@ import Cookies from 'js-cookie';
 
 export default async function UpdateUserData(mainUser)  {
   return await axios.put('http://localhost:8090/users/updateUser', {
-    "firstName": mainUser.firstName,
-    "linkedIn": mainUser.linkedIn
+    "name": mainUser.name,
+    "linkedIn": mainUser.linkedIn,
+    "about": mainUser.about,
+    "college": mainUser.college,
+    "website": mainUser.website,
+    "github": mainUser.github,
+    "twitter": mainUser.twitter
   } ,{
       headers: {
         Authorization: `Bearer ${Cookies.get('jwtToken')}`

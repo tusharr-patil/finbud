@@ -73,14 +73,99 @@ function EditProfile() {
           {/* name */}
           <TextField
             onChange={(e) => {
-              mainUser.firstName = e.target.value;
+              mainUser.name = e.target.value;
               setMainUser({...mainUser});
             }}
-            value={mainUser === undefined ? "" : mainUser.firstName}
+            value={mainUser === undefined ? "" : mainUser.name}
             autoFocus
             margin="dense"
-            id="firstname"
-            label="First Name"
+            id="name"
+            label="Name"
+            multiline
+            fullWidth
+            size="small"
+            variant="outlined"
+          />
+          <br />
+          {/* about */}
+          <TextField
+            value={mainUser === undefined ? "" : mainUser.about}
+            onChange={(e) => {
+              mainUser.about = e.target.value;
+              setMainUser({...mainUser});
+            }}
+            autoFocus
+            margin="dense"
+            id="about"
+            label="About"
+            multiline
+            fullWidth
+            size="small"
+            variant="outlined"
+          />
+          <br />
+          {/* college */}
+          <TextField
+            onChange={(e) => {
+              mainUser.college = e.target.value;
+              setMainUser({...mainUser});
+            }}
+            value={mainUser === undefined ? "" : mainUser.college}
+            autoFocus
+            margin="dense"
+            id="college"
+            label="College"
+            multiline
+            fullWidth
+            size="small"
+            variant="outlined"
+          />
+          <br />
+          {/* website */}
+          <TextField
+            onChange={(e) => {
+              mainUser.website = e.target.value;
+              setMainUser({...mainUser});
+            }}
+            value={mainUser === undefined ? "" : mainUser.website}
+            autoFocus
+            margin="dense"
+            id="website"
+            label="Website"
+            multiline
+            fullWidth
+            size="small"
+            variant="outlined"
+          />
+          <br />
+          {/* github */}
+          <TextField
+            onChange={(e) => {
+              mainUser.github = e.target.value;
+              setMainUser({...mainUser});
+            }}
+            value={mainUser === undefined ? "" : mainUser.github}
+            autoFocus
+            margin="dense"
+            id="github"
+            label="Github"
+            multiline
+            fullWidth
+            size="small"
+            variant="outlined"
+          />
+          <br />
+          {/* Twitter */}
+          <TextField
+            onChange={(e) => {
+              mainUser.twitter = e.target.value;
+              setMainUser({...mainUser});
+            }}
+            value={mainUser === undefined ? "" : mainUser.twitter}
+            autoFocus
+            margin="dense"
+            id="twitter"
+            label="Twitter"
             multiline
             fullWidth
             size="small"
@@ -103,6 +188,7 @@ function EditProfile() {
             size="small"
             variant="outlined"
           />
+
         </DialogContent>
         <DialogActions style={{ justifyContent: "center" }}>
           <Button color="primary" onClick={handleEdit} autoFocus>

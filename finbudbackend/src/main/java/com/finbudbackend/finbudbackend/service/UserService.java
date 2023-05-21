@@ -53,14 +53,14 @@ public class UserService {
           return;
         }
         User currUser = userOptional.get();
-        currUser.setFirstName(user.getFirstName());
+        currUser.setName(user.getName());
         currUser.setLinkedIn(user.getLinkedIn());
-        // currUser.setLastName(user.getLastName());
-        // currUser.setAbout(user.getAbout());
-        // currUser.setGithub(user.getGithub());
-        // currUser.setCollege(user.getCollege());
-        // currUser.setSkills(user.getSkills());
-        // currUser.setTwitter(user.getTwitter());
+        currUser.setAbout(user.getAbout());
+        currUser.setGithub(user.getGithub());
+        currUser.setCollege(user.getCollege());
+        currUser.setSkills(user.getSkills());
+        currUser.setTwitter(user.getTwitter());
+        currUser.setWebsite(user.getWebsite());
         userRepository.save(currUser);
         log.info("user details updated successfully");
     }

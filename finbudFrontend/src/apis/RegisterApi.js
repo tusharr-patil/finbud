@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-export default function RegisterApi(firstName, email, password) {
+export default function RegisterApi(name, email, password) {
   const apiURL = 'http://localhost:8090/register';
   axios.post(apiURL, {
-    "firstName": firstName,
+    "name": name,
     "email": email,
     "password": password
   }, {

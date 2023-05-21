@@ -27,8 +27,7 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue()
     private Long id;
-    private String firstName;
-    private String lastName;
+    private String name;
     private String email;
     private String password;
     private String avatar;
@@ -57,9 +56,8 @@ public class User implements UserDetails {
     // contains postIds of the user's post
     private Set<Long> myPost = new HashSet<>();
 
-    public User(String firstName, String lastName, String email, String password) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public User(String name, String email, String password) {
+        this.name = name;
         this.email = email;
         this.password = password;
     }

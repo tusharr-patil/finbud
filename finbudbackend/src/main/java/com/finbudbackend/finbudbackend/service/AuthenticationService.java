@@ -67,8 +67,7 @@ public class AuthenticationService {
         }
 
         var user = User.builder()
-                .firstName(request.getFirstName())
-                .lastName(request.getLastName())
+                .name(request.getName())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .avatar("https://avatars.dicebear.com/api/bottts/:" + request.getEmail() + ".svg")

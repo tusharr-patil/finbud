@@ -16,8 +16,14 @@ export default function ViewProfile({
     <>
       <Dialog open={openViewProfile} onClose={handleViewProfileCancel}>
         <DialogTitle>{"User Profile"}</DialogTitle>
-        <DialogContent>Name: {userDetails.firstName}</DialogContent>
+        <DialogContent>Name: {userDetails.name}</DialogContent>
         <DialogContent>Email: {userDetails.email}</DialogContent>
+        <DialogContent>About: {userDetails.about}</DialogContent>
+        <DialogContent>College: {userDetails.college}</DialogContent>
+        <DialogContent>Website: {userDetails.website}</DialogContent>
+        <DialogContent>Github: {userDetails.github}</DialogContent>
+        <DialogContent>Twitter: {userDetails.twitter}</DialogContent>
+        <DialogContent>LinkedIn: {userDetails.linkedIn}</DialogContent>
         {/* <DialogContent>
             Email: {mainUser[0] === undefined ? "" : mainUser[0].email}
           </DialogContent>

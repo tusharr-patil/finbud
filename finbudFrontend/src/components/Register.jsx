@@ -4,12 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [email, setEmail] = useState('');
-  const [firstName, setFirstName] = useState('');
+  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handlerFirstNameChange = (e) => {
-    setFirstName(e.target.value);
+  const handlerNameChange = (e) => {
+    setName(e.target.value);
   }
 
   const handleEmailChange = (e) => {
@@ -21,7 +21,7 @@ const Register = () => {
   };
 
   const handleSignIn = () => {
-    RegisterApi(firstName, email, password)
+    RegisterApi(name, email, password)
   };
 
   function goToSignIn() {
@@ -32,8 +32,8 @@ const Register = () => {
     <div>
       <h1>Register</h1>
       <form>
-      <label htmlFor="firstName">FirstName:</label>
-        <input type="text" id="firstName" value={firstName} onChange={handlerFirstNameChange} />
+      <label htmlFor="name">Name:</label>
+        <input type="text" id="name" value={name} onChange={handlerNameChange} />
 
         <label htmlFor="email">Email:</label>
         <input type="email" id="email" value={email} onChange={handleEmailChange} />

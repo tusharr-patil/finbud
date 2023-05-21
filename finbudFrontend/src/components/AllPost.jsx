@@ -59,21 +59,12 @@ export default function AllPost() {
       setPosts(fetchSavedPost);
     }
 
-    function handleSignOut() {
-        SignOutApi()
-            .then(navigate("/"))
-    }
-
     useEffect(() => {
         fetchAllPost();
     }, [])
 
     return (
-        <div style = {{marginTop: "10px"}}>
-            <button onClick={handleSignOut}>Sign Out</button>
-            <br />
-            total posts: {posts.length}
-
+        <div style = {{marginTop: "2%"}}>
             <Box style={{ width: "100%" }}>
               <Tabs value={value}
                 onChange={handleChange}
