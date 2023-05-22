@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SignOutApi from '../apis/SignOutApi';
 import { useNavigate } from "react-router-dom";
 import { UserDetailsApi } from '../apis/UserDetailsApi';
+import "../styles/styles.css";
 
 function HelloWorld() {
     const [data, setData] = useState([]);

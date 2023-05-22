@@ -45,6 +45,7 @@ public class PostService {
 
     public List<Post> getAllPost() {
         List<Post> postList = postRepository.findAllByOrderByTimeSincePostAddedDesc();
+        if(postList == null) return new ArrayList<>();
         for(Post post : postList){
             post.setTimeSince(timeSince.timeSince(post.getTimeSincePostAdded()));
         }
@@ -57,7 +58,7 @@ public class PostService {
             return;
         }
         Post post = getPostById(postId);
-        if(post.getUserId() != userOptional.get().getId()){
+        if(post == null || post.getUserId() != userOptional.get().getId()){
             System.out.println(post.getUserId());
             System.out.println(userOptional.get().getId());
             return;
@@ -85,6 +86,7 @@ public class PostService {
 
     public List<Post> getUserPost(Long userId) {
         List<Post> postList = postRepository.findAllByUserId(userId);
+        if(postList == null) return new ArrayList<>();
         for(Post post : postList){
             post.setTimeSince(timeSince.timeSince(post.getTimeSincePostAdded()));
         }
@@ -95,6 +97,7 @@ public class PostService {
     public List<Post> getSavedPost(Long userId) {
         log.info("in savedPost service");
         Set<Long> postIds = userService.getSavedPosts(userId);
+        if(postIds == null) return new ArrayList<>();
         List<Long> postIdsList = new ArrayList<>(postIds);
         int n = postIds.size();
         log.info("in savedPost service 1");
