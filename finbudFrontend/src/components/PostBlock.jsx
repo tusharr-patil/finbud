@@ -68,8 +68,18 @@ export default function PostBlock(props) {
     snackBar("Post deleted successfully", "error");
   }
 
-  function share() {
+  function shareOnWhatsapp() {
+    const text = 'Test Msg';
+  
+  // Create the WhatsApp share URL with the pre-filled text
+  const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+  
+  // Open the URL in a new window or tab
+  window.open(url, '_blank');
+  }
 
+  function share() {
+    // shareOnWhatsapp();
   }
 
   useEffect(() => {
@@ -150,7 +160,7 @@ export default function PostBlock(props) {
           <Card.Title>Benefits</Card.Title>
           <Card.Text>{props?.post?.benefits}</Card.Text>
         </CardContent>
-        <Grid container>
+        <Grid container justifyContent="center">
           <Grid lg={6} style={{ textAlign: "center" }}>
             <Box style={{ display: "flex", justifyContent: "center" }}>
               <List sx={{ pt: 0 }}>

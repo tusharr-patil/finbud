@@ -3,6 +3,7 @@ package com.finbudbackend.finbudbackend.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,11 +24,11 @@ public class Post {
     // foreign key - check if the user is valid or not..
     private Long userId;
 
-    private String projectName;
+    @NotBlank private String projectName;
 
-    private String workingOn;
+    @NotBlank private String workingOn;
 
-    private String requirements;
+    @NotBlank private String requirements;
 
     private String expertise;
 
