@@ -13,10 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -30,21 +27,25 @@ public class RegisterController {
     private final AuthenticationService service;
 
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(
+    public ResponseEntity register(
             @RequestBody RegisterRequest request
     ) {
         try {
             if(request.getEmail() == null || request.getName() == null || request.getPassword() == null) {
-                return (ResponseEntity<AuthenticationResponse>) ResponseEntity.badRequest();
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
-            AuthenticationResponse response = service.register(request);
-            response.setHttpStatus(HttpStatus.OK);
-            return ResponseEntity.ok(response);
+            service.register(request);
+            return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
             AuthenticationResponse response = new AuthenticationResponse();
             response.setHttpStatus(HttpStatus.BAD_GATEWAY);
             return ResponseEntity.ok(response);
         }
+    }
+
+    @GetMapping("/confirm")
+    public String confirm(@RequestParam("token") String token) {
+        return service.confirmToken(token);
     }
 
     @PostMapping("/authenticate")

@@ -2,14 +2,10 @@ package com.finbudbackend.finbudbackend.service;
 
 import com.finbudbackend.finbudbackend.entity.Post;
 import com.finbudbackend.finbudbackend.entity.User;
-import com.finbudbackend.finbudbackend.model.UserInfo;
 import com.finbudbackend.finbudbackend.repository.PostRepository;
 import com.finbudbackend.finbudbackend.repository.UserRepository;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
@@ -127,5 +123,9 @@ public class UserService {
 //        user.setMyPost(userPost);
 //        userRepository.save(user);
 //    }
+
+    public int enableUser(String email) {
+        return userRepository.enableUser(email);
+    }
 
 }

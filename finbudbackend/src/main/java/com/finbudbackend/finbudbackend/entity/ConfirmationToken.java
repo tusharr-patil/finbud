@@ -1,4 +1,4 @@
-package com.finbudbackend.finbudbackend.service.token;
+package com.finbudbackend.finbudbackend.entity;
 
 import com.finbudbackend.finbudbackend.entity.User;
 import jakarta.persistence.*;

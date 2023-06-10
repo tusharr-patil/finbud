@@ -36,7 +36,6 @@ function Register() {
       } else {
         console.log("login successful");
         Cookies.set('jwtToken', data.token, { path: '/', sameSite: 'strict'});
-        navigate("/home");
       }
     } catch (error) {
       console.error(error);

@@ -46,9 +46,11 @@ public class User implements UserDetails {
 
     private String github;
 
-    private String Twitter; // Validation
+    private String twitter; // Validation
 
     private String skills;
+    private String verificationToken;
+    private boolean isVerified;
 
     // contains postIds of the saved post
     private Set<Long> savedPost = new LinkedHashSet<>();
@@ -91,4 +93,6 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    public boolean isVerified() {return this.isVerified;}
 }

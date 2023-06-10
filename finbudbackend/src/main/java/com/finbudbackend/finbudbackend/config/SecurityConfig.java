@@ -54,7 +54,7 @@ public class SecurityConfig {
 //                .addFilterAfter(new CsrfCookieFilter(), BasicAuthenticationFilter.class)
                 .authorizeHttpRequests()
                 .requestMatchers("/users/**", "/user", "/posts/**").authenticated()
-                .requestMatchers("/register", "/hello", "/authenticate").permitAll()
+                .requestMatchers("/register", "/hello", "/authenticate", "/confirm").permitAll()
                 .and().formLogin()
                 .and().httpBasic()
                 .and().logout()
