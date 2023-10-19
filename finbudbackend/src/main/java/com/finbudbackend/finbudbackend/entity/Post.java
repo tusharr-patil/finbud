@@ -21,7 +21,6 @@ public class Post {
     @GeneratedValue
     private Long postId;
 
-    // foreign key - check if the user is valid or not..
     private Long userId;
 
     @NotBlank private String projectName;
@@ -41,10 +40,4 @@ public class Post {
     private Set<Long> postSavedByUsers = new HashSet<>();
 
     private Boolean isSaved = false;
-
-//    Project Name
-//    Working on
-//    Requirements
-//    Experience
-//    Benefits
 }

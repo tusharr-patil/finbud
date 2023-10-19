@@ -20,14 +20,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    // core but not very useful
     @GetMapping(path = "userDetails/{id}")
     @ResponseBody
     public User getUser(@PathVariable Long id){
         return userService.getUser(id);
     }
 
-    // for personal use
     @GetMapping(value = "getAllUsers")
     public List<User> getAllUsers(){
         return userService.getAllUsers();
@@ -38,26 +36,16 @@ public class UserController {
         userService.deleteUser(id);
     }
 
-    // core api
     @GetMapping(value = "getUserByName/{email}")
     public User getUserByEmail(@PathVariable String email){
-        log.info("in controller in getUserByEmail");
         return userService.getUserByEmail(email);
     }
 
-    // core api
     @PutMapping(value = "updateUser")
     public void updateUser(@RequestBody User user, Authentication authentication){
         userService.updateUser(user, authentication);
     }
 
-    // for personal use
-    // @DeleteMapping(value = "deleteUsers")
-    // public void deleteAllUsers(){
-    //     userService.deleteAllUsers();
-    // }
-
-    // core api
     @PutMapping(value = "saveUnSavePostId/{postId}")
     public void saveUnSavePostId(@PathVariable Long postId, Authentication authentication){
         userService.addSavedPostId(authentication, postId);

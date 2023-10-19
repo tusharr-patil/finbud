@@ -32,14 +32,7 @@ public class PostService {
     private TimeSince timeSince = new TimeSince();
 
     public void addPost(Post post){
-        log.info("in post service");
         postRepository.save(post);
-
-        // save postId in user
-        Long userId = post.getUserId();
-        Long postId = post.getPostId();
-//        userService.addUserPostId(userId, postId);
-
         log.info("post saved successfully!!");
     }
 
@@ -67,15 +60,7 @@ public class PostService {
         for(Long userId : usersWhoSavedPost){
             userService.removeDeletedPostId(postId, userId);
         }
-
-//        Long userId = post.getUserId();
-//        userService.addUserPostId(userId, postId);
-
         postRepository.deleteById(postId);
-    }
-
-    public void deleteAllPosts() {
-        postRepository.deleteAll();
     }
 
     public Post getPostById(Long postId) {
@@ -95,19 +80,16 @@ public class PostService {
     }
 
     public List<Post> getSavedPost(Long userId) {
-        log.info("in savedPost service");
         Set<Long> postIds = userService.getSavedPosts(userId);
         if(postIds == null) return new ArrayList<>();
         List<Long> postIdsList = new ArrayList<>(postIds);
         int n = postIds.size();
-        log.info("in savedPost service 1");
         List<Post> postList = new ArrayList<>();
         for(int i = n-1; i >= 0; i--){
             Post currPost = postRepository.findById(postIdsList.get(i)).get();
             currPost.setTimeSince(timeSince.timeSince(currPost.getTimeSincePostAdded()));
             postList.add(currPost);
         }
-        log.info("in savedPost service 2 " + postList.size());
         return postList;
     }
 

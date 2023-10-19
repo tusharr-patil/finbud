@@ -18,6 +18,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import ClearIcon from "@mui/icons-material/Clear";
 import ToastContext from "../contexts/ToastContext";
 import CreatePostApi from "../apis/CreatePostApi";
+import AllPost from "./AllPost";
 import { GetUserIdApi } from "../apis/GetUserIdApi";
 
 const fab = {
@@ -123,8 +124,10 @@ export default function CreatePost() {
   const handleSubmit = async () => {
     setOpen(false);
     post.userId = await GetUserIdApi();
-    CreatePostApi(post);
+    await CreatePostApi(post);
     setPost((prevPost) => ({}));
+    console.log()
+    <AllPost />
   };
 
   const handleClose = () => {

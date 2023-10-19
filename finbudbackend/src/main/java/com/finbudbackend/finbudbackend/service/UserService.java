@@ -25,11 +25,6 @@ public class UserService {
         return userRepository.findById(id).get();
     }
 
-    public void addUser(User user){
-        userRepository.save(user);
-        log.info("user added successfully");
-    }
-
     public void deleteUser(Long id){
         userRepository.deleteById(id);
     }
@@ -61,20 +56,17 @@ public class UserService {
         log.info("user details updated successfully");
     }
 
-    public void deleteAllUsers() {
-        userRepository.deleteAll();
-    }
-
     public Set<Long> getSavedPosts(Long userId) {
         User user = getUser(userId);
         if(user != null) return user.getSavedPost();
         return null;
     }
 
-    public String addSavedPostId(Authentication authentication, Long postId) {
+    public void addSavedPostId(Authentication authentication, Long postId) {
         Optional<User> userOptional = userRepository.findByEmail(authentication.getName());
         if(!userOptional.isPresent()){
-            return "user not found";
+            log.info("user not found");
+            return;
         }
         User user = userOptional.get();
         Long uid = user.getId();
@@ -95,13 +87,12 @@ public class UserService {
             postSavedByUsers.add(uid);
         }
 
-        
         user.setSavedPost(postIds);
         userRepository.save(user);
 
         post.setPostSavedByUsers(postSavedByUsers);
         postRepository.save(post);
-        return "successfully " + (save ? "saved" : "unsaved") + " post";
+        log.info("successfully " + (save ? "saved" : "unsaved") + " post");
     }
 
     public void removeDeletedPostId(Long postId, Long userId) {
@@ -110,22 +101,4 @@ public class UserService {
         savedPostIds.remove(postId);
         userRepository.save(user);
     }
-
-//    public void addUserPostId(Long userId, Long postId) {
-//        User user = getUser(userId);
-//        Set<Long> userPost = user.getMyPost();
-//        if(userPost.contains(postId)){
-//            userPost.remove(postId);
-//        }
-//        else {
-//            userPost.add(postId);
-//        }
-//        user.setMyPost(userPost);
-//        userRepository.save(user);
-//    }
-
-    public int enableUser(String email) {
-        return userRepository.enableUser(email);
-    }
-
 }

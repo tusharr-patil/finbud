@@ -60,6 +60,7 @@ export default function AllPost() {
     }
 
     useEffect(() => {
+        console.log('getting all post');
         fetchAllPost();
     }, [])
 
