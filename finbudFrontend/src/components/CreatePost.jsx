@@ -126,8 +126,6 @@ export default function CreatePost() {
     post.userId = await GetUserIdApi();
     await CreatePostApi(post);
     setPost((prevPost) => ({}));
-    console.log()
-    <AllPost />
   };
 
   const handleClose = () => {

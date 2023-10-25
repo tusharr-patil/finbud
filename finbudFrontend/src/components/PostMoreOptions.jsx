@@ -80,12 +80,12 @@ function PostMoreOptions({
               </Button>
             )}
           </ListItem>
-          <ListItem>
+          {/* <ListItem>
             <Button onClick={share}>
               <ShareOutlinedIcon style={{ marginRight: "20px" }} />
               Share
             </Button>
-          </ListItem>
+          </ListItem> */}
           <ListItem>
             {showDelete ? (
               <div>

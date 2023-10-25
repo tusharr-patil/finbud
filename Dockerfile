@@ -2,7 +2,7 @@ FROM amazoncorretto:17
 
 WORKDIR /app
 
-COPY target/finbudbackend-0.0.1-SNAPSHOT.jar app.jar
+COPY finbudbackend/target/finbudbackend-0.0.1-SNAPSHOT.jar app.jar
 
 EXPOSE 8090
 

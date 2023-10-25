@@ -121,7 +121,7 @@ export default function PostBlock(props) {
                 open={open}
                 postIds={props?.post?.postId}
                 saveUnsave={saveUnsave}
-                share={share}
+                // share={share}
                 save={save}
               />
             </IconButton>
@@ -160,7 +160,7 @@ export default function PostBlock(props) {
           <Card.Title>Benefits</Card.Title>
           <Card.Text>{props?.post?.benefits}</Card.Text>
         </CardContent>
-        <Grid container justifyContent="center">
+        {/* <Grid container justifyContent="center">
           <Grid lg={6} style={{ textAlign: "center" }}>
             <Box style={{ display: "flex", justifyContent: "center" }}>
               <List sx={{ pt: 0 }}>
@@ -194,7 +194,7 @@ export default function PostBlock(props) {
               </List>
             </Box>
           </Grid>
-        </Grid>
+        </Grid> */}
       </Card>
     </div>
   );
