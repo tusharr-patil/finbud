@@ -2,7 +2,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 export async function GetUserIdApi() {
-  return await axios.get('http://localhost:8090/user', {
+  return await axios.get('http://finbudbackend:8090/user', {
       headers: {
         Authorization: `Bearer ${Cookies.get('jwtToken')}`
       }

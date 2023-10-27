@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 export default function CreatePostApi(post) {
   return new Promise((resolve, reject) => {
     console.log("post {}", post);
-    const apiURL = 'http://localhost:8090/posts/createPost';
+    const apiURL = 'http://finbudbackend:8090/posts/createPost';
     axios.post(apiURL, {
       userId: post?.userId, 
       projectName: post?.projectName,

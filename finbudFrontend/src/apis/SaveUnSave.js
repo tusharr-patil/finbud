@@ -3,7 +3,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 async function AddOrRemovePostIdToSaveList(postId) {
-  const apiURL = "http://localhost:8090/users/saveUnSavePostId/" + postId;
+  const apiURL = "http://finbudbackend:8090/users/saveUnSavePostId/" + postId;
   await axios
     .put(
       apiURL,

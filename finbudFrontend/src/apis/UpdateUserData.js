@@ -2,7 +2,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 export default async function UpdateUserData(mainUser)  {
-  return await axios.put('http://localhost:8090/users/updateUser', {
+  return await axios.put('http://finbudbackend:8090/users/updateUser', {
     "name": mainUser.name,
     "linkedIn": mainUser.linkedIn,
     "about": mainUser.about,

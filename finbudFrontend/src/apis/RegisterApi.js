@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default function RegisterApi(name, email, password) {
   return new Promise((resolve, reject) => {
-    const apiURL = 'http://localhost:8090/register';
+    const apiURL = 'http://finbudbackend:8090/register';
     axios.post(apiURL, {
       "name": name,
       "email": email, 

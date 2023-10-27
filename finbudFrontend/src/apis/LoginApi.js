@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default function LoginApi(email, password) {
   return new Promise((resolve, reject) => {
-    const apiURL = 'http://localhost:8090/authenticate';
+    const apiURL = 'http://finbudbackend:8090/authenticate';
     axios.post(apiURL, {
       "email": email, 
       "password": password

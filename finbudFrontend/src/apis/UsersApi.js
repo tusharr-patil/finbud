@@ -2,7 +2,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 function GetAllUsers() {
-    return axios.get('http://localhost:8090/users/getAllUsers', {
+    return axios.get('http://finbudbackend:8090/users/getAllUsers', {
       headers: {
         Authorization: `Bearer ${Cookies.get('jwtToken')}`
       }
