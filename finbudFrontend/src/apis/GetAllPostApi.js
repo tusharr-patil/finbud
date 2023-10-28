@@ -2,7 +2,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 export default function GetAllPostApi() {
-    return axios.get('http://finbudbackend:8090/posts/getAllPost', {
+    return axios.get('http://localhost:8090/posts/getAllPost', {
         headers: {
             Authorization: `Bearer ${Cookies.get('jwtToken')}`
         }

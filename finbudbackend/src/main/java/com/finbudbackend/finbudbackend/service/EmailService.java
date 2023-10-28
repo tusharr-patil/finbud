@@ -25,6 +25,7 @@ public class EmailService {
     @Async
     public void send(String to, String email) {
         try {
+            log.info("sending email to the user");
             MimeMessage mimeMessage = mailSender.createMimeMessage();
             MimeMessageHelper helper =
                     new MimeMessageHelper(mimeMessage, "utf-8");
@@ -33,6 +34,7 @@ public class EmailService {
             helper.setSubject("Confirm your email");
             helper.setFrom("hello@finbud.com");
             mailSender.send(mimeMessage);
+            log.info("send the email to the user");
         } catch (MessagingException e) {
             log.error("failed to send email", e);
             throw new IllegalStateException("failed to send email");

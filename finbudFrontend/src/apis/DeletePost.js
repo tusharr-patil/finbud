@@ -2,7 +2,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 export default function DeletePostApi(postId) {
-    return axios.delete('http://finbudbackend:8090/posts/deletePost/' + postId , {
+    return axios.delete('http://localhost:8090/posts/deletePost/' + postId , {
         headers: {
             Authorization: `Bearer ${Cookies.get('jwtToken')}`
         }

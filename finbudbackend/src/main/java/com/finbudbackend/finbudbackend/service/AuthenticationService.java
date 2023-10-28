@@ -65,6 +65,7 @@ public class AuthenticationService {
     }
 
     private String createToken(RegisterRequest request) {
+        log.info("creating jwt token");
         boolean userExists = repository.findByEmail(request.getEmail()).isPresent();
 
         if (userExists) {
@@ -90,7 +91,7 @@ public class AuthenticationService {
         );
         confirmationTokenService.saveConfirmationToken(
                 confirmationToken);
-
+        log.info("token created");
         return jwtToken;
     }
 

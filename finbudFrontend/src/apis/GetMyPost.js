@@ -2,7 +2,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 export default async function GetMyPost(id) {
-  return await axios.get('http://finbudbackend:8090/posts/getUserPost/' + id, {
+  return await axios.get('http://localhost:8090/posts/getUserPost/' + id, {
       headers: {
         Authorization: `Bearer ${Cookies.get('jwtToken')}`
       }
